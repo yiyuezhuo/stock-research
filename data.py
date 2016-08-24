@@ -65,4 +65,9 @@ def index_download(root = 'hist_data'):
     
 def get_local(code, root = 'hist_data'):
     path = os.path.join(root,code+'.csv')
-    return read_csv(path)
+    df = read_csv(path)
+    df.index = pd.DatetimeIndex(df.index)
+    return df
+    
+def get_locals(code_list, root = 'hist_data'):
+    return {code:get_local(code) for code in code_list}

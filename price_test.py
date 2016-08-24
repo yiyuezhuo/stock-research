@@ -5,12 +5,8 @@ Created on Fri Aug 19 18:44:06 2016
 @author: yiyuezhuo
 """
 
-import data
+from data import get_local
 
-def get_local(code):
-    df = data.get_local(code)
-    df.index = pd.DatetimeIndex(df.index)
-    return df
 
 import numpy as np
 import scipy
